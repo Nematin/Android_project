@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Здесь будет название</string>
+
+    <string name="login_label">Вход</string>
+    <string name="main_label">Лабораторные работы</string>
+    <string name="newLab_label">Новая лабораторная работа</string>
+    <string name="manualTextView">Ручной ввод</string>
+
+    <string name="email">Email</string>
+    <string name="hint_enterEmail">Введите логин</string>
+    <string name="password">Пароль</string>
+    <string name="hint_enterPassword">Введите пароль</string>
+
+    <string name="action_sign_in">Войти</string>
+    <string name="action_sign_in_short">Вход</string>
+
+    <string name="error_invalid_email">Некорректный логин</string>
+    <string name="error_invalid_password">У вас короткий пароль</string>
+    <string name="error_incorrect_password">Некорректный пароль</string>
+    <string name="error_field_required">Заполните поле</string>
+
+    <string name="permission_rationale">"Мы не смогли перевести это уведомление"</string>
+
+    <string name="labName">Название лабораторной</string>
+    <string name="logib_label">Вход</string>
+    <string name="qrTextView">QR Code</string>
+    <string name="result_text_default">Наведите на QR код</string>
+    <string name="QR_Method">Добавление с помощью QR кода</string>
+    <string name="tab_main_label">Главная</string>
+    <string name="tab_material_label">Материалы</string>
+    <string name="tab_files_label">Файлы</string>
+    <string name="tab_notes_label">Замечания</string>
+    <string name="LabDetail">Детальная информация</string>
+    <string name="label_discipline">Дисциплина</string>
+    <string name="label_checkpoint">Контрольная точка</string>
+    <string name="label_labsName">Название лабораторной работы</string>
+    <string name="label_date">Дата сдачи</string>
+
+
+</resources>
