@@ -1,3 +1,4 @@
+//@author Дегтяникова Дарья
 package com.example.studyit;
 
 import android.os.Bundle;

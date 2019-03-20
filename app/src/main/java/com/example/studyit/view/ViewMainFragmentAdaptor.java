@@ -1,3 +1,4 @@
+//@author Баландин, Дегтяникова
 package com.example.studyit.view;
 
 import android.content.Context;
