@@ -1,3 +1,4 @@
+//@author Баландин, Дегтяникова, Золотарёв, Балышев
 package com.example.studyit.view;
 
 import android.content.Intent;
