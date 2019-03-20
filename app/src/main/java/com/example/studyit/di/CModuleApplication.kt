@@ -1,3 +1,4 @@
+//@author Баландин, Дегтяникова, Балышев
 package com.example.studyit.di.modules
 
 
