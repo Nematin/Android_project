@@ -1,3 +1,4 @@
+//@author Баландин Артём
 package com.example.studyit.model;
 
 public class СFilesInfo extends CNamedObject {
