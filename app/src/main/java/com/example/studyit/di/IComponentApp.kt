@@ -1,4 +1,4 @@
-//@author Баландин, Дегтяникова, Балышев
+//@author Баландин, Дегтяникова
 package com.example.studyit.di
 
 import com.example.studyit.CApplication
