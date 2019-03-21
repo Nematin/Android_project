@@ -1,5 +1,5 @@
-//@author Баландин
 <?xml version="1.0" encoding="utf-8"?>
+<!--autor Balandin Balyshev-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Button"
-        android:onClick="onRecListClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewTasks"
@@ -37,8 +26,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="62dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <com.github.clans.fab.FloatingActionMenu
             android:layout_width="match_parent"
@@ -57,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:onClick="onFABClick"
-                android:src="@drawable/ic_manual_holo_dark"
+                android:src="@drawable/ic_add_white_24dp"
                 app:fab_colorNormal="@color/colorPrimary"
                 app:fab_colorPressed="@color/colorPrimaryDark"
                 app:fab_label="Ручной ввод" />
@@ -66,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:onClick="onFABQRClick"
-                android:src="@drawable/ic_manual_holo_dark"
+                android:src="@drawable/ic_add_white_24dp"
                 app:fab_colorNormal="@color/colorPrimary"
                 app:fab_colorPressed="@color/colorPrimaryDark"
                 app:fab_label="QR Code" />

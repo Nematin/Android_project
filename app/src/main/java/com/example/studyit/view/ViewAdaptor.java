@@ -1,9 +1,10 @@
-//@author Баландин, Дегтяникова
+//@author Баландин, Дегтяникова, Balyshev
 package com.example.studyit.view;
 
 import android.content.Context;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,15 +22,17 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 
 public class ViewAdaptor extends RecyclerView.Adapter<ViewAdaptor.ViewHolder> {
 
     private LayoutInflater inflater;
-    private List<CTask> tasks;
+    private List<CLab> tasks;
     private Context context;
 
-    ViewAdaptor(Context context, List<CTask> CTasks) {
-        this.tasks = CTasks;
+    ViewAdaptor(Context context, List<CLab> CLabs) {
+        this.tasks = CLabs;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
     }
@@ -42,15 +45,21 @@ public class ViewAdaptor extends RecyclerView.Adapter<ViewAdaptor.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewAdaptor.ViewHolder holder, final int position) {
-        CTask CTask = tasks.get(position);
-        holder.nameView.setText(CTask.getName());
-        holder.disciplineView.setText(CTask.getDiscipline());
-        //holder.status.setImageDrawable();
+        CLab CLab = tasks.get(position);
+        holder.nameView.setText(CLab.getName());
+        holder.disciplineView.setText(CLab.getDiscipline());
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, tasks.get(position).getName() + " is clicked!", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(context, tasks.get(position).getName() + " is clicked!", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: clicked on: " + tasks.get(position));
+
+                Intent intent = new Intent(context, LabTabs.class);
+
+       //         intent.putExtra("image_url", mImages.get(position));
+        //        intent.putExtra("image_name", mImageNames.get(position));
+                context.startActivity(intent);
             }
         });
     }
