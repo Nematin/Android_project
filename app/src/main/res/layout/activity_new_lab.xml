@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:spinnerMode="dialog" />
+        android:spinnerMode="dialog"
+
+        />
 
     <Spinner
         android:id="@+id/spinnerCP"
@@ -27,12 +29,18 @@
 
         android:spinnerMode="dialog" />
 
-    <TextView
-        android:id="@+id/textViewLabName"
+    <!--maximzltrv-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textViewLabName1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/labName" />
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorLink="@color/colorAccent"
+        />
+    <!--maximzltrv-->
 
     <LinearLayout
         android:layout_width="match_parent"
