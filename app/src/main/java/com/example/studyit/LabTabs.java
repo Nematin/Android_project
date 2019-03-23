@@ -1,4 +1,3 @@
-//@author Баландин Артём
 package com.example.studyit;
 
 import androidx.appcompat.app.AppCompatActivity;

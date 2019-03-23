@@ -1,4 +1,3 @@
-//@author Баландин
 package com.example.studyit.view;
 
 import android.os.Bundle;

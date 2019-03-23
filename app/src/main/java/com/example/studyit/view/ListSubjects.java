@@ -1,4 +1,3 @@
-//@author Баландин
 package com.example.studyit.view;
 
 import com.example.studyit.model.CSubject;

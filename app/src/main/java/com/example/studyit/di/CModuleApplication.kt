@@ -1,9 +1,7 @@
-//@author Баландин, Дегтяникова
-package com.example.studyit.di
+package com.example.studyit.di.modules
 
 
 import android.content.Context
-import com.example.studyit.CApplication
 import dagger.Binds
 import dagger.Module
 

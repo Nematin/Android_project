@@ -5,9 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.studyit.data.dao.IDAOLab
 import com.example.studyit.data.dao.IDAOSubject
-import com.example.studyit.model.CLab
 import com.example.studyit.model.CSubject
 import com.example.studyit.utils.converters.CConverterLocalDateTime
 import com.example.studyit.utils.converters.CConverterURI
@@ -19,9 +17,7 @@ import com.example.studyit.utils.converters.CConverterUUID
  *******************************************************************************************************/
 @Database(
     entities                                = [
-            CSubject::class,
-        CLab::class
-
+            CSubject::class
     ],
     version                                 = 1,
     exportSchema                            = false
@@ -70,5 +66,4 @@ abstract class CRoomDatabase                : RoomDatabase()
         }
     }
     abstract fun daoSubject()               : IDAOSubject
-    abstract fun daoLab()               : IDAOLab
 }

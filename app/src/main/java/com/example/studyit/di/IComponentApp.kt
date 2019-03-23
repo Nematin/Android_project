@@ -1,7 +1,7 @@
-//@author Баландин, Дегтяникова
 package com.example.studyit.di
 
 import com.example.studyit.CApplication
+import com.example.studyit.di.modules.CModuleApplication
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

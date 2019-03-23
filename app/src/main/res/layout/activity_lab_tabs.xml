@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--@author Дегтяникова-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,8 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginLeft="200dp" />
+            android:paddingRight="10dp" />
     </androidx.viewpager.widget.ViewPager>
 
 

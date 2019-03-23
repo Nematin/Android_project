@@ -35,6 +35,8 @@
     <string name="label_checkpoint">Контрольная точка</string>
     <string name="label_labsName">Название лабораторной работы</string>
     <string name="label_date">Дата сдачи</string>
+    <string name="rationale_photo_picker">Необходимо разрешение на использование фотогррафий.</string>
+    <string name="rationale_doc_picker">Необходимо разрешение для использования файлов</string>
 
 
 </resources>

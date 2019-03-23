@@ -1,4 +1,3 @@
-//@author Дегтяникова, Баландин, Золоторёв, Балышев
 package com.example.studyit.view;
 
 import android.animation.Animator;

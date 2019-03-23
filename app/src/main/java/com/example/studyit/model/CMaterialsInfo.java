@@ -1,4 +1,3 @@
-//@author Баландин Артём
 package com.example.studyit.model;
 
 public class CMaterialsInfo extends CNamedObject {

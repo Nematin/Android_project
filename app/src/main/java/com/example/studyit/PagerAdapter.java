@@ -1,4 +1,3 @@
-//@author Дегтяникова Дарья
 package com.example.studyit;
 
 import androidx.fragment.app.Fragment;

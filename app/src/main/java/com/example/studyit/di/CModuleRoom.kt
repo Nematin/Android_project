@@ -1,4 +1,3 @@
-//@author Баландин, Дегтяникова
 package com.example.studyit.di
 
 

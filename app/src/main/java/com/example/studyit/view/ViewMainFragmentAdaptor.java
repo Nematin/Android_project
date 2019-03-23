@@ -1,4 +1,3 @@
-//@author Баландин, Дегтяникова
 package com.example.studyit.view;
 
 import android.content.Context;
@@ -11,20 +10,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.studyit.R;
-import com.example.studyit.model.CLab;
+import com.example.studyit.model.CTask;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ViewMainFragmentAdaptor extends RecyclerView.Adapter<ViewAdaptor.ViewHolder> {
 
 private LayoutInflater inflater;
-private List<CLab> tasks;
+private List<CTask> tasks;
 private Context context;
 
-        ViewMainFragmentAdaptor(Context context, List<CLab> CLabs) {
-        this.tasks = CLabs;
+        ViewMainFragmentAdaptor(Context context, List<CTask> CTasks) {
+        this.tasks = CTasks;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         }
@@ -37,9 +37,9 @@ private Context context;
 
     @Override
 public void onBindViewHolder(ViewAdaptor.ViewHolder holder, final int position) {
-        CLab CLab = tasks.get(position);
-        holder.nameView.setText(CLab.getName());
-        holder.disciplineView.setText(CLab.getDiscipline());
+        CTask CTask = tasks.get(position);
+        holder.nameView.setText(CTask.getName());
+        holder.disciplineView.setText(CTask.getDiscipline());
         //holder.status.setImageDrawable();
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {

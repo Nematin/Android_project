@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--autor Balandin Balyshev-->
+<!--autor Balyshev-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -59,7 +59,34 @@
                 app:fab_colorNormal="@color/colorPrimary"
                 app:fab_colorPressed="@color/colorPrimaryDark"
                 app:fab_label="QR Code" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/pick_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_camera"
+                app:fab_colorNormal="@color/colorPrimary"
+                app:fab_colorPressed="@color/colorPrimaryDark"
+                app:fab_label="Фото" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/pick_doc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:fab_colorNormal="@color/colorPrimary"
+                app:fab_colorPressed="@color/colorPrimaryDark"
+                app:fab_label="Файл" />
+
         </com.github.clans.fab.FloatingActionMenu>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="300dp"
+            android:layout_height="706dp"
+            android:layout_marginTop="380dp"
+            >
+
+
+        </androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
 
