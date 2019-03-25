@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:724401981145:android:de1f35c7d7689b42",
         "android_client_info": {
-          "package_name": "com.example.studyit"
+          "package_name": "ru.psu.studyit"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "724401981145-s6frcb6a787vl1o4ugb5h35c9is45ive.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.studyit",
+            "package_name": "ru.psu.studyit",
             "certificate_hash": "7984a36612483ccf2b537adbe3eced4122124f02"
           }
         },
