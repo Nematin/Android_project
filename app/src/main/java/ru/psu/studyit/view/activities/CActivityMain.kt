@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.content_activity_main.*
 import ru.psu.studyit.view.activities.lab.CActivityLab
 import ru.psu.studyit.view.adapters.CRecyclerViewAdapterLabs
 
-class CActivityMain : CActivityBase() {
+class CActivityMain                         : CActivityBase() {
 
     @Inject
     lateinit var serviceLab                 : IServiceLab
@@ -35,13 +35,13 @@ class CActivityMain : CActivityBase() {
     private var recyclerView                : RecyclerView?
                                             = null
 
-    fun onFABClick(view: View) {
+    fun fabOpenLabClick(view: View) {
         val intent                          = Intent(this, CActivityLab::class.java)
         startActivity(intent)
     }
 
 
-    fun onFABQRClick(view: View) {
+    fun fabOpenLabQRClick(view: View) {
         val intent                          = Intent(this, CActivityQRScanner::class.java)
         startActivity(intent)
     }

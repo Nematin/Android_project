@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Study IT PSU</string>
+    <string name="app_name">StudyIT PSU</string>
 
     <string name="login_label">Вход</string>
     <string name="main_label">Лабораторные работы</string>

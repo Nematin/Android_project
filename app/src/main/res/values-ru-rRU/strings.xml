@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Study IT PSU</string>
+    <string name="app_name">StudyIT PSU</string>
     <string name="logib_label">Вход</string>
     <string name="main_label">Лабораторные работы</string>
     <string name="newLab_label">Новая лабораторная работа</string>

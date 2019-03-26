@@ -46,7 +46,7 @@
                 app:fab_addButtonColorNormal="@color/primaryDark"
                 app:fab_addButtonColorPressed="@color/primary"
 
-
+                app:fab_labelStyle="@style/fab_labels_theme"
                 app:fab_labelsPosition="left">
                 <!--app:fab_labelStyle="@style/menu_labels_style"-->
                 <!--app:fab_addButtonPlusIconColor="@color/half_black"-->
@@ -54,6 +54,7 @@
                 <com.getbase.floatingactionbutton.FloatingActionButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="fabOpenLabClick"
                     app:fab_title="@string/ManualInput"
                     app:fab_icon="@drawable/ic_add_white_24dp"
                     app:fab_colorNormal="@color/primaryDark"
@@ -63,6 +64,7 @@
                 <com.getbase.floatingactionbutton.FloatingActionButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="fabOpenLabQRClick"
                     app:fab_title="@string/QR_Method"
                     app:fab_icon="@drawable/ic_add_white_24dp"
                     app:fab_colorNormal="@color/primaryDark"
