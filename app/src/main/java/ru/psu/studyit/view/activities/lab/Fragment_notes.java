@@ -1,15 +1,17 @@
 //@author Дегтяникова Дарья
-package ru.psu.studyit;
+package ru.psu.studyit.view.activities.lab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ru.psu.studyit.R;
+
 import androidx.fragment.app.Fragment;
 
-public class Fragment_materials extends Fragment {
-    public Fragment_materials() {
+public class Fragment_notes extends Fragment {
+    public Fragment_notes() {
 // Required empty public constructor
     }
 
@@ -22,7 +24,9 @@ public class Fragment_materials extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_materials, container, false);
-
+        return inflater.inflate(R.layout.fragment_lab_comments, container, false);
     }
+
+
+
 }

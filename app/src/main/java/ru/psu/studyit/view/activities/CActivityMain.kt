@@ -20,60 +20,64 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import ru.psu.studyit.LabTabs
+import kotlinx.android.synthetic.main.content_activity_main.*
+import ru.psu.studyit.view.activities.lab.CActivityLab
 import ru.psu.studyit.view.adapters.CRecyclerViewAdapterLabs
 
 class CActivityMain : CActivityBase() {
 
     @Inject
-    lateinit var serviceLab: IServiceLab
+    lateinit var serviceLab                 : IServiceLab
 
-    internal var tasks: ArrayList<CLab> = ArrayList()
+    internal var tasks                      : ArrayList<CLab>
+                                            = ArrayList()
 
-    private var recyclerView : RecyclerView? =null
-
-    override fun shouldUpRecreateTask(targetIntent: Intent): Boolean {
-        return super.shouldUpRecreateTask(targetIntent)
-    }
+    private var recyclerView                : RecyclerView?
+                                            = null
 
     fun onFABClick(view: View) {
-        val intent = Intent(this, NewLab::class.java)
+        val intent                          = Intent(this, CActivityLab::class.java)
         startActivity(intent)
     }
 
 
     fun onFABQRClick(view: View) {
-        val intent = Intent(this, qrCode::class.java)
+        val intent                          = Intent(this, CActivityQRScanner::class.java)
         startActivity(intent)
     }
-
-    fun onRecListClick(view: View) {
-        val intent = Intent(this, LabTabs::class.java)
-        startActivity(intent)
-    }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//
-//        val test = ArrayList<CLab>()
-//        test.add(CLab("Lab1", "01", "1", null))
-//        test.add(CLab("Lab1", "02", "1", null))
-//        test.add(CLab("Lab1", "03", "1", null))
-        registerDisposable(Single.fromCallable {
-            serviceLab.save(CLab("Lab1", "11", "1", null))
-            serviceLab.save(CLab("Lab2", "12", "2", null))
-            serviceLab.save(CLab("Lab3", "13", "3", null))
-            serviceLab.save(CLab("Lab4", "14", "4", null))
-            "123"
-        }
+
+        //Асинхронный запрос данных по отчётам по лабораторным работам в БД.
+        registerDisposable(
+            //Запрашиваем список существующих лабораторных
+            serviceLab.get()
+                .flatMap {
+                    //Если уже есть, переходим к следующей части запроса.
+                    if (it.isNotEmpty())
+                        Single.fromCallable { "123" }
+                    //Если ни одной нет, добавляем тестовые данные.
+                    else
+                        Single.fromCallable {
+                            serviceLab.save(CLab("Lab1", "11", "1", null))
+                            serviceLab.save(CLab("Lab2", "12", "2", null))
+                            serviceLab.save(CLab("Lab3", "13", "3", null))
+                            serviceLab.save(CLab("Lab4", "14", "4", null))
+                            "123"
+                        }
+                }
+                //Запрашиваем актуализированный список в БД
                 .flatMap {
                     serviceLab.get()
                 }
+                //Выполняем все действия в фоновом потоке.
                 .subscribeOn(Schedulers.io())
+                //Результат получаем в основном потоке.
                 .observeOn(AndroidSchedulers.mainThread())
+                //Обрабатываем результат - выводим данные на экран.
                 .subscribe (
                     {
                         tasks.addAll(it)
@@ -85,22 +89,12 @@ class CActivityMain : CActivityBase() {
                 )
         )
 
+        RecyclerViewTasks?.layoutManager    = LinearLayoutManager(this)
 
-        recyclerView = findViewById<View>(R.id.RecyclerViewTasks) as RecyclerView
-
-        val llm = LinearLayoutManager(this)
-        recyclerView?.layoutManager = llm
-
-        val adapter = CRecyclerViewAdapterLabs(this, tasks)
         // устанавливаем для списка адаптер
-        recyclerView?.adapter = adapter
+        RecyclerViewTasks?.adapter          = CRecyclerViewAdapterLabs(this, tasks)
 
 
-    }
-
-    fun onItemClick(view: View, position: Int) {
-        val intent = Intent(this, LabTabs::class.java)
-        startActivity(intent)
     }
 
 }

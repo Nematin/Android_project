@@ -5,6 +5,8 @@
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <dist:module dist:instant="true" />
 
@@ -17,13 +19,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LabTabs"
-            android:label="@string/LabDetail"/>
-        <activity
-            android:name=".view.activities.qrCode"
+            android:name=".view.activities.CActivityQRScanner"
             android:label="@string/QR_Method" />
         <activity
-            android:name=".view.activities.NewLab"
+            android:name=".view.activities.lab.CActivityLab"
             android:label="@string/newLab_label" />
         <activity
             android:name=".view.activities.CActivityMain"

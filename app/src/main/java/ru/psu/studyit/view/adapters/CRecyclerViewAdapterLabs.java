@@ -2,7 +2,6 @@
 package ru.psu.studyit.view.adapters;
 
 import android.content.Context;
-
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import ru.psu.studyit.LabTabs;
 import ru.psu.studyit.R;
 
 import java.util.List;
@@ -22,6 +20,7 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 import ru.psu.studyit.model.CLab;
+import ru.psu.studyit.view.activities.lab.CActivityLab;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -29,11 +28,11 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class CRecyclerViewAdapterLabs extends RecyclerView.Adapter<CRecyclerViewAdapterLabs.ViewHolder> {
 
     private LayoutInflater inflater;
-    private List<CLab> tasks;
+    private List<CLab> labs;
     private Context context;
 
     public CRecyclerViewAdapterLabs(Context context, List<CLab> CLabs) {
-        this.tasks = CLabs;
+        this.labs = CLabs;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
     }
@@ -46,20 +45,21 @@ public class CRecyclerViewAdapterLabs extends RecyclerView.Adapter<CRecyclerView
 
     @Override
     public void onBindViewHolder(CRecyclerViewAdapterLabs.ViewHolder holder, final int position) {
-        CLab CLab = tasks.get(position);
-        holder.nameView.setText(CLab.getName());
-        holder.disciplineView.setText(CLab.getDiscipline());
+        CLab lab = labs.get(position);
+        holder.nameView.setText(lab.getName());
+        holder.disciplineView.setText(lab.getDiscipline());
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Toast.makeText(context, tasks.get(position).getName() + " is clicked!", Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "onClick: clicked on: " + tasks.get(position));
+               // Toast.makeText(context, tasks.get(position).getName() + " is clicked!", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: clicked on: " + labs.get(position));
 
-                Intent intent = new Intent(context, LabTabs.class);
+                Toast.makeText(context, labs.get(position)+ " is clicked!", Toast.LENGTH_SHORT).show();
 
-       //         intent.putExtra("image_url", mImages.get(position));
-        //        intent.putExtra("image_name", mImageNames.get(position));
+                Intent intent = new Intent(context, CActivityLab.class);
+                //intent.putExtra("image_url", tasks.get(position));
+                //intent.putExtra("image_name", mImageNames.get(position));
                 context.startActivity(intent);
             }
         });
@@ -72,10 +72,10 @@ public class CRecyclerViewAdapterLabs extends RecyclerView.Adapter<CRecyclerView
 //    }
     @Override
     public int getItemCount() {
-        return tasks.size();
+        return labs.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder  {
         final TextView disciplineView;
         final TextView nameView;
         final TextView pointView;
@@ -83,17 +83,11 @@ public class CRecyclerViewAdapterLabs extends RecyclerView.Adapter<CRecyclerView
         final LinearLayout linearLayout;
         ViewHolder(View view){
             super(view);
-            linearLayout = (LinearLayout) view.findViewById(R.id.oneRow);
-            nameView = (TextView) view.findViewById(R.id.name);
-            disciplineView = (TextView) view.findViewById((R.id.discipline));
-            pointView = (TextView) view.findViewById((R.id.check_point));
-            status = (ImageView) view.findViewById((R.id.status));
+            linearLayout = view.findViewById(R.id.oneRow);
+            nameView = view.findViewById(R.id.name);
+            disciplineView = view.findViewById((R.id.discipline));
+            pointView = view.findViewById((R.id.check_point));
+            status = view.findViewById((R.id.status));
         }
-    }
-
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
     }
 }

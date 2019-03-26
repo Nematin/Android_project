@@ -41,7 +41,6 @@ class CModuleServerAPI
     {
         val url                             = "http://192.168.0.1"
 
-        url ?: throw Exception("E0001. Server API URL is not specified.")
         return Retrofit.Builder()
                     .baseUrl(url)
                     .addConverterFactory(Java8OptionalConverterFactory.create())

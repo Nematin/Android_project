@@ -1,16 +1,25 @@
 //@author Дегтяникова Дарья
-package ru.psu.studyit;
+package ru.psu.studyit.view.activities.lab;
+
+import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import ru.psu.studyit.R;
+
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
-
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+    Context context;
+    public PagerAdapter(
+            Context context,
+            FragmentManager fm,
+            int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
+
+        this.context                        = context;
     }
 
     @Override
@@ -18,13 +27,14 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                Fragment_main tab1 = new Fragment_main();
+                CFragmentLabDetails tab1 = new CFragmentLabDetails();
                 return tab1;
+
             case 1:
-                Fragment_files tab2 = new Fragment_files();
+                Fragment_materials tab2 = new Fragment_materials();
                 return tab2;
             case 2:
-                Fragment_materials tab3 = new Fragment_materials();
+                CFragmentLabFiles tab3 = new CFragmentLabFiles();
                 return tab3;
             case 3:
                 Fragment_notes tab4 = new Fragment_notes();
@@ -40,14 +50,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-
-                return "Главная";
+                return context.getString(R.string.Details);
             case 1:
-                return "Файлы";
+                return context.getString(R.string.Materials);
             case 2:
-                return "Материалы";
+                return context.getString(R.string.Files);
             case 3:
-                return "Чат";
+                return context.getString(R.string.Comments);
             default:
                 return null;
         }

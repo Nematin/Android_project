@@ -1,6 +1,5 @@
 //@author Дегтяникова Дарья
-
-package ru.psu.studyit;
+package ru.psu.studyit.view.activities.lab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +8,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class Fragment_files extends Fragment {
+import ru.psu.studyit.R;
 
-    public Fragment_files() {
+public class Fragment_materials extends Fragment {
+    public Fragment_materials() {
 // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class Fragment_files extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_files, container, false);
+        return inflater.inflate(R.layout.fragment_lab_materials, container, false);
 
     }
 }

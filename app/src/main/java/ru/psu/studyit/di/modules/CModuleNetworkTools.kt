@@ -1,4 +1,3 @@
-//@author Баландин, Дегтяникова
 package ru.psu.studyit.di.modules
 
 

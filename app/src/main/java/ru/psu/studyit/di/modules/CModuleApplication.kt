@@ -1,6 +1,4 @@
-//@author Баландин, Дегтяникова
 package ru.psu.studyit.di.modules
-
 
 import android.content.Context
 import ru.psu.studyit.CApplication

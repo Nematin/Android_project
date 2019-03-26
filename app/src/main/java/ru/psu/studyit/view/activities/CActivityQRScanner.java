@@ -9,10 +9,10 @@ import android.widget.TextView;
 
 import ru.psu.studyit.R;
 
-//import com.google.zxing.integration.android.IntentIntegrator;
-//import com.google.zxing.integration.android.IntentResult;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
-public class qrCode extends AppCompatActivity {
+public class CActivityQRScanner extends AppCompatActivity {
 
     SurfaceView cameraPreview;
     TextView txtResult;
@@ -54,8 +54,8 @@ public class qrCode extends AppCompatActivity {
 
         txtResult = (TextView) findViewById(R.id.txtResult);
 
-//        IntentIntegrator integrator = new IntentIntegrator(this);
-//        integrator.initiateScan();
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.initiateScan();
 
 //        barcodeDetector = new BarcodeDetector.Builder(this).setBarcodeFormats(Barcode.QR_CODE).build();
 //
@@ -66,7 +66,7 @@ public class qrCode extends AppCompatActivity {
 //            @Override
 //            public void surfaceCreated(SurfaceHolder holder) {
 //                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-//                    ActivityCompat.requestPermissions(qrCode.this, new String[]{Manifest.permission.CAMERA}, RequestCameraPermissionID);
+//                    ActivityCompat.requestPermissions(CActivityQRScanner.this, new String[]{Manifest.permission.CAMERA}, RequestCameraPermissionID);
 //                    return;
 //                }
 //                try{
@@ -113,13 +113,13 @@ public class qrCode extends AppCompatActivity {
 //        });
     }
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-//        if (scanResult != null)
-//        {
-//            // handle scan result
-//            txtResult.setText(scanResult.getContents());
-//            int x = 0;
-//        }
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null)
+        {
+            // handle scan result
+            txtResult.setText(scanResult.getContents());
+            int x = 0;
+        }
 
     }
 }

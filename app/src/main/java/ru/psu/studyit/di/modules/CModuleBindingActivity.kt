@@ -7,6 +7,7 @@ import ru.psu.studyit.di.modules.activities.CModuleActivityLogin
 import ru.psu.studyit.di.modules.activities.CModuleActivityMain
 import ru.psu.studyit.view.activities.CActivityLogin
 import ru.psu.studyit.view.activities.CActivityMain
+import ru.psu.studyit.view.activities.lab.CActivityLab
 
 /********************************************************************************************************
  * Модуль dagger 2, отвечает за привязку объектов активностей по названиям их классов.                  *
@@ -32,4 +33,13 @@ abstract class CModuleBindingActivity
     )
     internal abstract fun bindActivitySettings(
     )                                       : CActivityMain
+
+    @CScopeActivity
+    @ContributesAndroidInjector(
+        modules                             = [
+            CModuleActivityMain::class
+        ]
+    )
+    internal abstract fun bindActivityLab(
+    )                                       : CActivityLab
 }

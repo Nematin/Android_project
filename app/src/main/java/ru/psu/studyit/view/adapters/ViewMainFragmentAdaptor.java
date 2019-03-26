@@ -23,15 +23,15 @@ private LayoutInflater inflater;
 private List<CLab> tasks;
 private Context context;
 
-        ViewMainFragmentAdaptor(Context context, List<CLab> CLabs) {
-        this.tasks = CLabs;
+        ViewMainFragmentAdaptor(Context context, List<CLab> CTasks) {
+        this.tasks = CTasks;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         }
     @Override
     public CRecyclerViewAdapterLabs.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.fragment_main, parent, false);
+        View view = inflater.inflate(R.layout.fragment_lab_details, parent, false);
         return new CRecyclerViewAdapterLabs.ViewHolder(view);
     }
 

@@ -12,7 +12,7 @@ import ru.psu.studyit.view.activities.CActivityMain
 class CModuleActivityMain
 {
     @Provides
-    fun provideActivitySettings(
+    fun provideActivityMain(
         activity                            : CActivityMain
     )                                       : CActivityMain
     {

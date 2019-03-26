@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/oneItemLab"
     android:orientation="vertical">
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spinnerSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ms_arrowColor="@color/primaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="@color/primaryDark"
+        app:ms_floatingLabelText="floating label"
+        app:ms_hint="hint"
+        app:ms_multiline="true" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +30,7 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_discipline"
+            android:text="@string/Subject"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -45,38 +56,13 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_checkpoint"
+            android:text="@string/CheckPoint"
             android:textSize="20sp"
             android:textColor="#000000"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/checkpoint_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/label_labsName"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/labsName_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
