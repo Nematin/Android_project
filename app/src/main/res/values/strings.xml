@@ -39,6 +39,8 @@
     <string name="Materials">Materials</string>
     <string name="Comments">Comments</string>
     <string name="ManualInput">Manual input</string>
+    <string name="Documents">Documents</string>
+    <string name="Photos">Photos</string>
 
 
 </resources>

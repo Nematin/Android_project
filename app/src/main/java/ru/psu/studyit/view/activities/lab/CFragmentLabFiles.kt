@@ -53,15 +53,31 @@ class CFragmentLabFiles                        :
     {
         super.onViewCreated(view, savedInstanceState)
 
-//        //кнопку необходимо будет перенести в CFragmentLabFiles, когда они будут работать
-//        fabTakePhoto.setOnClickListener { pickPhotoClicked() }
-//        //кнопку необходимо будет перенести в CFragmentLabFiles, когда они будут работать
-//        fabPickFile.setOnClickListener { pickDocClicked() }
+        initControls()
+
+    }
+    private fun initControls()
+    {
+        //кнопку необходимо будет перенести в CFragmentLabFiles, когда они будут работать
+        fabTakePhoto.setOnClickListener { pickPhotoClicked() }
+        //кнопку необходимо будет перенести в CFragmentLabFiles, когда они будут работать
+        fabPickFile.setOnClickListener { pickDocClicked() }
+
+
+        FrameLayoutInterceptorFragmentFiles.setOnTouchListener(View.OnTouchListener { _, _ ->
+            if (floatingActionsMenuLabFiles.isExpanded)
+            {
+                floatingActionsMenuLabFiles.collapse()
+                return@OnTouchListener true
+            }
+            false
+        })
     }
 
     @AfterPermissionGranted(RC_PHOTO_PICKER_PERM)
     fun pickPhotoClicked()
     {
+        floatingActionsMenuLabFiles.collapse()
         if (EasyPermissions.hasPermissions(context!!, FilePickerConst.PERMISSIONS_FILE_PICKER))
         {
             onPickPhoto()
@@ -79,6 +95,7 @@ class CFragmentLabFiles                        :
     @AfterPermissionGranted(RC_FILE_PICKER_PERM)
     fun pickDocClicked()
     {
+        floatingActionsMenuLabFiles.collapse()
         if (EasyPermissions.hasPermissions(context!!, FilePickerConst.PERMISSIONS_FILE_PICKER))
         {
             onPickDoc()
@@ -133,7 +150,7 @@ class CFragmentLabFiles                        :
             .show()
     }
 
-    fun onPickPhoto()
+    private fun onPickPhoto()
     {
         val maxCount = MAX_ATTACHMENT_COUNT - docPaths.size
         if (docPaths.size + photoPaths.size == MAX_ATTACHMENT_COUNT)
@@ -163,7 +180,7 @@ class CFragmentLabFiles                        :
     }
 
     //
-    fun onPickDoc()
+    private fun onPickDoc()
     {
         val zips = arrayOf(".zip", ".rar", ".7z")
         val docs = arrayOf(".doc", ".txt")// по какой-то причине приложение вылетает

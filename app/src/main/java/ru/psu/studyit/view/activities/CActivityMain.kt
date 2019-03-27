@@ -16,13 +16,15 @@ import ru.psu.studyit.model.CLab
 import javax.inject.Inject
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_activity_main.*
 import ru.psu.studyit.view.activities.lab.CActivityLab
 import ru.psu.studyit.view.adapters.CRecyclerViewAdapterLabs
+
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class CActivityMain                         : CActivityBase() {
 
@@ -32,16 +34,15 @@ class CActivityMain                         : CActivityBase() {
     internal var tasks                      : ArrayList<CLab>
                                             = ArrayList()
 
-    private var recyclerView                : RecyclerView?
-                                            = null
-
     fun fabOpenLabClick(view: View) {
+        floatingActionsMenuOpenLab.collapse()
         val intent                          = Intent(this, CActivityLab::class.java)
         startActivity(intent)
     }
 
 
     fun fabOpenLabQRClick(view: View) {
+        floatingActionsMenuOpenLab.collapse()
         val intent                          = Intent(this, CActivityQRScanner::class.java)
         startActivity(intent)
     }
@@ -51,6 +52,27 @@ class CActivityMain                         : CActivityBase() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        initControls()
+        updateTasks()
+    }
+    private fun initControls()
+    {
+        RecyclerViewTasks?.layoutManager    = LinearLayoutManager(this)
+        // устанавливаем для списка адаптер
+        RecyclerViewTasks?.adapter          = CRecyclerViewAdapterLabs(this)
+
+        FrameLayoutInterceptor.setOnTouchListener(View.OnTouchListener { _, _ ->
+            if (floatingActionsMenuOpenLab.isExpanded)
+            {
+                floatingActionsMenuOpenLab.collapse()
+                return@OnTouchListener true
+            }
+            false
+        })
+    }
+    private fun updateTasks()
+    {
         //Асинхронный запрос данных по отчётам по лабораторным работам в БД.
         registerDisposable(
             //Запрашиваем список существующих лабораторных
@@ -80,21 +102,16 @@ class CActivityMain                         : CActivityBase() {
                 //Обрабатываем результат - выводим данные на экран.
                 .subscribe (
                     {
-                        tasks.addAll(it)
-                        recyclerView?.adapter?.notifyDataSetChanged()
+                        (RecyclerViewTasks?.adapter as CRecyclerViewAdapterLabs?)?.labs?.addAll(it)
+                            .let {
+                                RecyclerViewTasks?.adapter?.notifyDataSetChanged()
+                            }
+
                     },
                     {
                         Log.e("STUDYIT", "Exception while fetching lab list", it)
                     }
                 )
         )
-
-        RecyclerViewTasks?.layoutManager    = LinearLayoutManager(this)
-
-        // устанавливаем для списка адаптер
-        RecyclerViewTasks?.adapter          = CRecyclerViewAdapterLabs(this, tasks)
-
-
     }
-
 }

@@ -34,4 +34,6 @@
     <string name="Materials">Материалы</string>
     <string name="Comments">Комментарии</string>
     <string name="ManualInput">Ручной ввод</string>
+    <string name="Documents">Документы</string>
+    <string name="Photos">Фотографии</string>
 </resources>

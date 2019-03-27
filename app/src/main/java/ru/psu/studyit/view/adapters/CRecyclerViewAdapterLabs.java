@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import ru.psu.studyit.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,10 +32,10 @@ public class CRecyclerViewAdapterLabs extends RecyclerView.Adapter<CRecyclerView
     private List<CLab> labs;
     private Context context;
 
-    public CRecyclerViewAdapterLabs(Context context, List<CLab> CLabs) {
-        this.labs = CLabs;
-        this.inflater = LayoutInflater.from(context);
-        this.context = context;
+    public CRecyclerViewAdapterLabs(Context context) {
+        this.labs                           = new ArrayList<>();
+        this.inflater                       = LayoutInflater.from(context);
+        this.context                        = context;
     }
     @Override
     public CRecyclerViewAdapterLabs.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -89,5 +90,9 @@ public class CRecyclerViewAdapterLabs extends RecyclerView.Adapter<CRecyclerView
             pointView = view.findViewById((R.id.check_point));
             status = view.findViewById((R.id.status));
         }
+    }
+    public List<CLab> getLabs()
+    {
+        return labs;
     }
 }
