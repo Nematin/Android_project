@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Здесь будет название</string>
+    <string name="app_name">StudyIT PSU</string>
     <string name="logib_label">Вход</string>
     <string name="main_label">Лабораторные работы</string>
     <string name="newLab_label">Новая лабораторная работа</string>
@@ -16,7 +16,6 @@
     <string name="error_field_required">Заполните поле</string>
     <string name="permission_rationale">Мы не смогли перевести это уведомление</string>
     <string name="labName">Название лабораторной</string>
-    <string name="manualTextView">Ручной ввод</string>
     <string name="login_label">Вход</string>
     <string name="qrTextView">QR код</string>
     <string name="result_text_default">Наведите на QR код</string>
@@ -25,9 +24,16 @@
     <string name="tab_material_label">Материалы</string>
     <string name="tab_files_label">Файлы</string>
     <string name="tab_notes_label">Замечания</string>
-    <string name="LabDetail">Детальная информация</string>
-    <string name="label_discipline">Дисциплина</string>
-    <string name="label_checkpoint">Контрольная точка</string>
-    <string name="label_labsName">Название лабораторной работы</string>
+    <string name="Subject">Дисциплина</string>
+    <string name="CheckPoint">Контрольная точка</string>
     <string name="label_date">Дата сдачи</string>
+    <string name="RationaleFilePicker">Для выбора и загрузки файлов необходимо предоставить разрешение на доступ к файловому хранилищу.</string>
+    <string name="RationaleCameraPermission">Для фотографироваия необходимо предоставить разрешение на доступ к камере.</string>
+    <string name="Details">Детальная информация</string>
+    <string name="Files">Файлы</string>
+    <string name="Materials">Материалы</string>
+    <string name="Comments">Комментарии</string>
+    <string name="ManualInput">Ручной ввод</string>
+    <string name="Documents">Документы</string>
+    <string name="Photos">Фотографии</string>
 </resources>

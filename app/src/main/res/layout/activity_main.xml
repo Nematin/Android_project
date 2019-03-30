@@ -1,77 +1,83 @@
-//@author Баландин
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--autor Balyshev-->
+<layout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Button"
-        android:onClick="onRecListClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    >
+    <!--<data>-->
+        <!---->
+    <!--</data>-->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerViewTasks"
-        android:layout_width="match_parent"
-        android:layout_height="706dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="62dp">
+        tools:context=".view.activities.CActivityMain">
 
-        <com.github.clans.fab.FloatingActionMenu
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/toolbar"
+
+            />
+        <!--app:viewModel="@{viewModel}"-->
+        <include
+            android:id="@+id/layout_content"
+            layout="@layout/content_activity_main"
+            />
+        <!--app:viewModel="@{viewModel}"-->
+
+        <!--Для прослушивания кликов пользователя вне меню, чтобы закрывать его.-->
+        <FrameLayout
+            android:id="@+id/FrameLayoutInterceptor"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginBottom="0dp"
-            app:menu_colorNormal="@color/colorPrimary"
-            app:menu_colorPressed="@color/colorPrimaryDark"
-            app:menu_fab_label="Выберите способ">
+            android:layout_height="match_parent"/>
 
-            <com.github.clans.fab.FloatingActionButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="onFABClick"
-                android:src="@drawable/ic_manual_holo_dark"
-                app:fab_colorNormal="@color/colorPrimary"
-                app:fab_colorPressed="@color/colorPrimaryDark"
-                app:fab_label="Ручной ввод" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.getbase.floatingactionbutton.FloatingActionsMenu
+                android:id="@+id/floatingActionsMenuOpenLab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            <com.github.clans.fab.FloatingActionButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="onFABQRClick"
-                android:src="@drawable/ic_manual_holo_dark"
-                app:fab_colorNormal="@color/colorPrimary"
-                app:fab_colorPressed="@color/colorPrimaryDark"
-                app:fab_label="QR Code" />
-        </com.github.clans.fab.FloatingActionMenu>
-    </RelativeLayout>
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
 
+                app:fab_addButtonColorNormal="@color/primaryDark"
+                app:fab_addButtonColorPressed="@color/primary"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                app:fab_labelStyle="@style/fab_labels_theme"
+                app:fab_labelsPosition="left">
+                <!--app:fab_labelStyle="@style/menu_labels_style"-->
+                <!--app:fab_addButtonPlusIconColor="@color/half_black"-->
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="fabOpenLabClick"
+                    app:fab_title="@string/ManualInput"
+                    app:fab_icon="@drawable/ic_add_white_24dp"
+                    app:fab_colorNormal="@color/primaryDark"
+                    app:fab_colorPressed="@color/primary"
+                    app:fab_size="mini"/>
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="fabOpenLabQRClick"
+                    app:fab_title="@string/QR_Method"
+                    app:fab_icon="@drawable/ic_add_white_24dp"
+                    app:fab_colorNormal="@color/primaryDark"
+                    app:fab_colorPressed="@color/primary"
+                    app:fab_size="mini"/>
+
+            </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

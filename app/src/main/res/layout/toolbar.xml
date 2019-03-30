@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Описание переменных, которые используются в Data Binding.-->
+    <!--<data>-->
+        <!--<variable-->
+            <!--name="viewModel"-->
+            <!--type="ru.smt.geoagent.viewmodel.CViewModelActivityBase" />-->
+
+    <!--</data>-->
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Toolbar"
+            android:minHeight="?attr/actionBarSize"
+
+            app:layout_scrollFlags="scroll|enterAlways|snap"/>
+        <!--app:title="@{viewModel.title}"-->
+
+    </com.google.android.material.appbar.AppBarLayout>
+</layout>
