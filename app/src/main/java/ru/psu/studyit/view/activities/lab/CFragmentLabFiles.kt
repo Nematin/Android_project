@@ -1,4 +1,4 @@
-//@author Дегтяникова Дарья
+//@author Дегтяникова Дарья, Балышев Артем
 
 package ru.psu.studyit.view.activities.lab
 
@@ -58,11 +58,8 @@ class CFragmentLabFiles                        :
     }
     private fun initControls()
     {
-        //кнопку необходимо будет перенести в CFragmentLabFiles, когда они будут работать
         fabTakePhoto.setOnClickListener { pickPhotoClicked() }
-        //кнопку необходимо будет перенести в CFragmentLabFiles, когда они будут работать
         fabPickFile.setOnClickListener { pickDocClicked() }
-
 
         FrameLayoutInterceptorFragmentFiles.setOnTouchListener(View.OnTouchListener { _, _ ->
             if (floatingActionsMenuLabFiles.isExpanded)
@@ -73,7 +70,7 @@ class CFragmentLabFiles                        :
             false
         })
     }
-
+//Запрос права на использование фотографий
     @AfterPermissionGranted(RC_PHOTO_PICKER_PERM)
     fun pickPhotoClicked()
     {
@@ -91,7 +88,7 @@ class CFragmentLabFiles                        :
             )
         }
     }
-
+    //Запрос права на использование документов
     @AfterPermissionGranted(RC_FILE_PICKER_PERM)
     fun pickDocClicked()
     {
@@ -149,7 +146,7 @@ class CFragmentLabFiles                        :
         Toast.makeText(context, "Num of files selected: " + filePaths.size, Toast.LENGTH_SHORT)
             .show()
     }
-
+//Выбор фото
     private fun onPickPhoto()
     {
         val maxCount = MAX_ATTACHMENT_COUNT - docPaths.size
@@ -179,12 +176,12 @@ class CFragmentLabFiles                        :
         }
     }
 
-    //
+    //Выбор документов
     private fun onPickDoc()
     {
-        val zips = arrayOf(".zip", ".rar", ".7z")
-        val docs = arrayOf(".doc", ".txt")// по какой-то причине приложение вылетает
-        val pdfs = arrayOf(".pdf") //по какой-то причине приложение вылетает
+
+        val docs = arrayOf(".doc", ".txt", ".pdf",".zip", ".rar", ".7z")
+
         val maxCount = MAX_ATTACHMENT_COUNT - photoPaths.size
         if (docPaths.size + photoPaths.size == MAX_ATTACHMENT_COUNT)
         {
@@ -200,13 +197,11 @@ class CFragmentLabFiles                        :
                 .setSelectedFiles(docPaths)
                 .setActivityTheme(R.style.FilePickerTheme)
                 .setActivityTitle("Please select doc")
-                .addFileSupport("ZIP", zips)
-                .addFileSupport("DOCS", docs) //по какой-то причине приложение вылетает
-                .addFileSupport("PDF", pdfs, R.drawable.pdf_blue) //по какой-то причине приложение вылетает
+                .addFileSupport("DOCS", docs)
                 .enableDocSupport(false)
                 .enableSelectAll(true)
                 .sortDocumentsBy(SortingTypes.name)
-                .withOrientation(Orientation.UNSPECIFIED)
+                .withOrientation(Orientation.PORTRAIT_ONLY)
                 .pickFile(this)
         }
     }

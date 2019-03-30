@@ -1,4 +1,4 @@
-//@author Баландин, Дегтяникова, Balyshev
+//@author Баландин, Дегтяникова, Балышев
 package ru.psu.studyit.view.adapters;
 
 import android.content.Context;

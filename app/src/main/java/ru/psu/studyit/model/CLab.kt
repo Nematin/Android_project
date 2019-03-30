@@ -1,4 +1,4 @@
-//@author Баландин Артём, Балышев
+//@author Баландин Артём, Балышев Артем
 package ru.psu.studyit.model
 
 import com.squareup.moshi.Json
