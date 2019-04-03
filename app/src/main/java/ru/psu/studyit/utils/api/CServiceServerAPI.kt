@@ -3,6 +3,7 @@ package ru.psu.studyit.utils.api
 import ru.psu.studyit.model.CSubject
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import retrofit2.Call
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,13 +26,11 @@ class CServiceServerAPI
      * список дисциплин.                                                                                *
      * @return объект для отслеживания статуса запроса.                                                 *
      ***************************************************************************************************/
-    override fun fetchSubjects(
-        userId                              : UUID
-    )                                       : Single<List<CSubject>>
+    override fun fetchSubjects() : Call<List<CSubject>>
     {
-        return template.getSubjectsByUserId(userId.toString())
+        return template.getSubjects()
             //Выполняем операцию в фоновом потоке, чтобы не блокировать интерфейс.
-            .subscribeOn(Schedulers.io())
+            //.subscribeOn(Schedulers.io())
     }
 
 

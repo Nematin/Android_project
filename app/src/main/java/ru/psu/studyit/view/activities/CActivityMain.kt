@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.util.Log
 
 import android.view.View
+import android.widget.Toast
 
-import java.util.ArrayList
-
-import ru.psu.studyit.R
 import ru.psu.studyit.data.services.IServiceLab
 import ru.psu.studyit.model.CLab
 
@@ -24,6 +22,22 @@ import ru.psu.studyit.view.activities.lab.CActivityLab
 import ru.psu.studyit.view.adapters.CRecyclerViewAdapterLabs
 
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import ru.psu.studyit.di.modules.CModuleServerAPI
+import ru.psu.studyit.utils.api.CServiceServerAPI
+import ru.psu.studyit.utils.api.CServiceServerAPI_Factory
+import ru.psu.studyit.utils.api.IServerAPITemplate
+
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import ru.psu.studyit.model.CSubject
+import com.squareup.moshi.Moshi
+import android.R
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import java.util.*
 
 
 class CActivityMain                         : CActivityBase() {
@@ -38,6 +52,27 @@ class CActivityMain                         : CActivityBase() {
         floatingActionsMenuOpenLab.collapse()
         val intent                          = Intent(this, CActivityLab::class.java)
         startActivity(intent)
+
+        val moshi = Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
+                .build()
+
+        val service = Retrofit.Builder()
+                .baseUrl("http://82.118.128.112:12002/")
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
+                .build()
+                .create(IServerAPITemplate::class.java)
+
+        var context = this
+        service.getSubjects().enqueue(object : Callback<List<CSubject>> {
+        override fun onResponse(call: Call<List<CSubject>>, response: Response<List<CSubject>>) {
+            response.body()?.forEach {
+                Toast.makeText(context, it._name, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        override fun onFailure(call: Call<List<CSubject>>, t: Throwable) = t.printStackTrace()
+    })
     }
 
 
@@ -50,7 +85,7 @@ class CActivityMain                         : CActivityBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(ru.psu.studyit.R.layout.activity_main)
 
 
         initControls()
