@@ -2,7 +2,6 @@ package ru.psu.studyit.utils.api
 
 import ru.psu.studyit.model.CSubject
 import io.reactivex.Single
-import retrofit2.Call
 import java.util.*
 
 /********************************************************************************************************
@@ -18,5 +17,7 @@ interface IServiceServerAPI
      * список дисциплин.                                                                                *
      * @return объект для отслеживания статуса запроса.                                                 *
      ***************************************************************************************************/
-    fun fetchSubjects() : Call<List<CSubject>>
+    fun fetchSubjects(
+        userId                              : UUID
+    )                                       : Single<List<CSubject>>
 }

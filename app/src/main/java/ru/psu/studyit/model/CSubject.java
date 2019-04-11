@@ -18,10 +18,5 @@ import androidx.room.Entity;
 //    ]
 )
 public class CSubject extends CNamedObject{
-    public String _id;
-    public String _createdAt;
-    public String _updatedAt;
-    public boolean _active;
-    public String _name;
-    public String _description;
+
 }

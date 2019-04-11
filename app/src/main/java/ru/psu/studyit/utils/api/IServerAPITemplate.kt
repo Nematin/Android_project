@@ -2,7 +2,6 @@ package ru.psu.studyit.utils.api
 
 import ru.psu.studyit.model.CSubject
 import io.reactivex.Single
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,11 +12,14 @@ import retrofit2.http.Query
 interface IServerAPITemplate
 {
     /****************************************************************************************************
-     * Запрос списка дисциплин.
-     * по данным АСУ ТП.
-     * @return объект с возможность отслеживания статуса запроса.
+     * Запрос списка дисциплин, которые изучает студент с учётной записью с идентификатором [userId].   *
+     * по данным АСУ ТП.                                                                                *
+     * @param userId - идентификатор учётной записи пользователя.                                       *
+     * @return объект с возможность отслеживания статуса запроса.                                       *
      ***************************************************************************************************/
     @GET("subjects")
-    fun getSubjects(
-    )                                       : Call<List<CSubject>>
+    fun getSubjectsByUserId(
+        @Query("user_id")
+        userId                              : String
+    )                                       : Single<List<CSubject>>
 }
