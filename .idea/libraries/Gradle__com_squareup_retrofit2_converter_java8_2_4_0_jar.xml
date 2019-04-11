@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.squareup.retrofit2:converter-java8:2.4.0@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-java8/2.4.0/c6ec20572064d69958deb52f5acfa1f2606dcc3f/converter-java8-2.4.0.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-java8/2.4.0/c6ec20572064d69958deb52f5acfa1f2606dcc3f/converter-java8-2.4.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-java8/2.4.0/8348c1aa689b530901b2434a6dcaa6612d885f41/converter-java8-2.4.0-sources.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-java8/2.4.0/8348c1aa689b530901b2434a6dcaa6612d885f41/converter-java8-2.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,15 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.appcompat:appcompat:1.1.0-alpha03@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ffd1055318cc8e69909823b8b1aafba/annotations.zip!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/6afff0f45371b0bcdc021d99f048ac8e/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ffd1055318cc8e69909823b8b1aafba/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ffd1055318cc8e69909823b8b1aafba/jars/classes.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/6afff0f45371b0bcdc021d99f048ac8e/jars/classes.jar!/" />
+      <root url="file://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/6afff0f45371b0bcdc021d99f048ac8e/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0-alpha03/e4a90ff841f30341287ec0c9648386b2e743bc08/appcompat-1.1.0-alpha03-sources.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0-alpha03/e4a90ff841f30341287ec0c9648386b2e743bc08/appcompat-1.1.0-alpha03-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
