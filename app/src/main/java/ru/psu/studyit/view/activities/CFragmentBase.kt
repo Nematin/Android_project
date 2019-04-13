@@ -1,38 +1,22 @@
 package ru.psu.studyit.view.activities
 
-import android.view.Gravity
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import dagger.android.support.DaggerAppCompatActivity
+import dagger.android.support.DaggerFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import ru.psu.studyit.utils.IDisposable
 
 /********************************************************************************************************
- * Базовый класс для всех активностей, содержит реализацию общих технических методов.                   *
- * @author Балышев А.М. 2019 0323.                                                                      *
+ * Базовый класс для всех фрагментов, содержит реализацию общих технических методов.                    *
+ * @author Селетков И.П. 2019 0423.                                                                     *
  *******************************************************************************************************/
-abstract class CActivityBase                :
-    DaggerAppCompatActivity(),
+abstract class CFragmentBase                :
+    DaggerFragment(),
     IDisposable
 {
     private var compositeDisposable         = CompositeDisposable()
-
-    /****************************************************************************************************
-     * Отображает сообщение.                                                                            *
-     ***************************************************************************************************/
-    fun showMessage(message                 : String)
-    {
-        val toast                           = Toast.makeText(
-            this,
-            message,
-            Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER, 0, 0)
-        toast.show()
-        return
-    }
 
     /****************************************************************************************************
      * При остановке активности отменяет все реактивные подписки, которые были зарегистрированы         *
@@ -56,24 +40,30 @@ abstract class CActivityBase                :
      * @param disposable - подписка, от которой необходимо отписаться в конце.                          *
      ***************************************************************************************************/
     override fun registerDisposable(
-        disposable                          : Disposable)
+        disposable                          : Disposable
+    )
     {
         compositeDisposable.add(disposable)
     }
 
     /****************************************************************************************************
-     * Возвращает модель представления типа T.                                                          *
+     * Возвращает модель представления типа [T] и выполняет от неё кусок кода [body].                   *
      * @param factory - фабрика, позволяющая создавать данный тип модели представления.                 *
      * @param body - кусок кода, который будет выполнен от имени модели представления.                  *
+     * @return модель представления или null, если фрагмент не привязан к активности.                   *
      ***************************************************************************************************/
     inline fun <reified T                   : ViewModel>
         viewModel (
         factory                             : ViewModelProvider.Factory,
         body                                : T.() -> Unit
-    )                                       : T
+    )                                       : T?
     {
-        val vm                              = ViewModelProviders.of(this, factory)[T::class.java]
-        vm.body()
-        return vm
+        activity?.run {
+            val vm                          = ViewModelProviders.of(this, factory)[T::class.java]
+            vm.body()
+            return vm
+        }
+        return null
+
     }
 }

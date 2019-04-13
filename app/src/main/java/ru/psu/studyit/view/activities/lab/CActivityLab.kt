@@ -4,15 +4,20 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 
 import ru.psu.studyit.R
 
 import ru.psu.studyit.view.activities.CActivityBase
 import kotlinx.android.synthetic.main.activity_lab.*
+import ru.psu.studyit.viewmodel.CViewModelActivityLab
+import ru.psu.studyit.viewmodel.observe
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import javax.inject.Inject
 
 
 /********************************************************************************************************
@@ -24,64 +29,65 @@ import java.net.URL
 class CActivityLab                          :
     CActivityBase()
 {
-    private var data: String? = null
-    private var text: TextView? = null
 
-    private var loadJson: Thread? = null
+    @Inject
+    lateinit var viewModelFactory           : ViewModelProvider.Factory
+    private lateinit var viewModel          : CViewModelActivityLab
 
-    private val tags = arrayOf(MainActivity.TAG_ID, MainActivity.CREATED_AT, MainActivity.UPDATED_AT, MainActivity.ACTIVE, MainActivity.TAG_NAME, MainActivity.DESCRIPTION)
-
-    private var helper: DBHelper? = null
-
+    /****************************************************************************************************
+     * Создание формы.                                                                                  *
+     ***************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lab)
 
-        viewPagerActivityLab.adapter        = PagerAdapter(this, supportFragmentManager, 4)
-        ///////////////////////////
+        initViewModel()
+        initDataBinding()
+        initControls()
 
-        loadJson = Thread(Runnable {
-            //Загрузка большой стринги с вашей ссылки
-            getData("http://82.118.128.112:12002/subjects")
-        })
-
-        loadJson!!.start()
-
-        formData() // формирование данных
-
-
-
-        //////////////////////////
     }
-
-    private suspend fun getData(path: String) {
-        try {
-            val url = URL(path)
-            val c = url.openConnection() as HttpURLConnection
-            c.requestMethod = "GET"
-            c.readTimeout = 10000
-            c.connect()
-
-            val reader = BufferedReader(InputStreamReader(c.inputStream))
-
-            val buf = StringBuilder()
-            var line: String
-
-            while ((reader.readLine()) != null) {
-                buf.append(reader.readLine() + "\n")
-            }
-
-            //это полубесполезные строки, добавил для того, чтобы у меня появился JsonArray
-            data = buf.toString()
-            data = "{\"json\" :$data}"
-
-            reader.close()
-        } catch (e: Exception) {
-            println(e.toString())
+    /****************************************************************************************************
+     * Создание и настройка модели представления.                                                       *
+     ***************************************************************************************************/
+    private fun initViewModel()
+    {
+        //Создание модели представления.
+        viewModel                           = viewModel(viewModelFactory) {
+            //При изменении состояния сервиса вызываем обработчик.
+            observe(this.serviceGeolocationActive, ::onServiceGeolocationActiveChanged)
         }
     }
 
+    /****************************************************************************************************
+     * Настройка компонентов для автоматического обновления информации на экране.                       *
+     ***************************************************************************************************/
+    private fun initDataBinding()
+    {
+        // Inflate view and obtain an instance of the binding class.
+        val binding                         : ActivityLabBinding
+                                            = DataBindingUtil.setContentView(this, R.layout.activity_lab)
+        // Specify the current activity as the lifecycle owner.
+        binding.lifecycleOwner              = this
+
+        binding.viewModel                   = viewModel
+
+        setSupportActionBar(binding.layoutToolbar.toolbar)
+    }
+
+    /****************************************************************************************************
+     * Получение ссылок на управляющие элементы формы.                                                  *
+     * Начальные значения.                                                                              *
+     ***************************************************************************************************/
+    private fun initControls()
+    {
+//        mTextViewServer!!.setText(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.DataExchangeServer.Address"))
+//        mTextViewPort!!.text = Integer.parseInt(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.DataExchangeServer.Port")).toString()
+//        mTextViewPassword!!.setText(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.DataExchangeServer.Password"))
+//        mTextViewLocationInterval!!.setText(String.valueOf(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.LocationInterval")))
+//        mTextViewLocationDistance!!.setText(String.valueOf(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.LocationDistance")))
+
+        return
+    }
 
 
     fun saveLab(view: View)
