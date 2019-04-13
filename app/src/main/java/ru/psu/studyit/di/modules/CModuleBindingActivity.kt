@@ -22,7 +22,7 @@ abstract class CModuleBindingActivity
             CModuleActivityLogin::class
         ]
     )
-    internal abstract fun bindActivityMain(
+    internal abstract fun bindActivityLogin(
     )                                       : CActivityLogin
 
     @CScopeActivity
@@ -31,7 +31,7 @@ abstract class CModuleBindingActivity
             CModuleActivityMain::class
         ]
     )
-    internal abstract fun bindActivitySettings(
+    internal abstract fun bindActivityMain(
     )                                       : CActivityMain
 
     @CScopeActivity

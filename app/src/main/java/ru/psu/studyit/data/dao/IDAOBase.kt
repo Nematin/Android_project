@@ -1,9 +1,6 @@
 package ru.psu.studyit.data.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import io.reactivex.Flowable
 import io.reactivex.Single
 
@@ -70,8 +67,17 @@ interface IDAOBase<EntityType, IdentifierType>
      *                                                                                                  *
      * @param obj the object to be inserted.                                                            *
      ***************************************************************************************************/
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(obj                          : EntityType)
+
+    /****************************************************************************************************
+     * Вставка списка объектов в БД.                                                                    *
+     *                                                                                                  *
+     * @param list список объектов для вставки.                                                         *
+     ***************************************************************************************************/
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(list                         : List<EntityType>
+    )                                       : LongArray
 
     /****************************************************************************************************
      * Update an object from the database.                                                              *

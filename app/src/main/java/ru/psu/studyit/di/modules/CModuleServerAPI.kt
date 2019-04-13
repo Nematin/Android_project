@@ -39,7 +39,7 @@ class CModuleServerAPI
         okHttpClient                        : OkHttpClient
     )                                       : Retrofit
     {
-        val url                             = "http://192.168.0.1"
+        val url                             = "http://82.118.128.112:12002/"
 
         return Retrofit.Builder()
                     .baseUrl(url)

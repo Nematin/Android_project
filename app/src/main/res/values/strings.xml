@@ -41,6 +41,7 @@
     <string name="ManualInput">Manual input</string>
     <string name="Documents">Documents</string>
     <string name="Photos">Photos</string>
+    <string name="ErrorUnknown">Unknown error</string>
 
 
 </resources>

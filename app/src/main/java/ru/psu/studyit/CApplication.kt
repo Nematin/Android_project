@@ -32,8 +32,8 @@ class CApplication                          : DaggerApplication()
     private fun initAppComponent()
     {
         componentApp                        = DaggerIComponentApp
-            .builder()
-            .create(this) as IComponentApp
+            .factory()
+            .create(this)
     }
 
     /****************************************************************************************************

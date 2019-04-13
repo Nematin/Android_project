@@ -1,6 +1,7 @@
 
 package ru.psu.studyit.di
 
+import dagger.BindsInstance
 import ru.psu.studyit.CApplication
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -22,13 +23,18 @@ import javax.inject.Singleton
         CModuleApplication::class,
         CModuleNetworkTools::class,
         CModuleServerAPI::class,
-        CModuleDataService::class,
+        CModuleRepositories::class,
         CModuleRoom::class,
         CModuleBindingActivity::class
     ]
 )
 interface IComponentApp                     : AndroidInjector<CApplication>
 {
-    @Component.Builder
-    abstract class Builder                  : AndroidInjector.Builder<CApplication>()
+    @Component.Factory
+    interface Factory
+    {
+        fun create(
+            @BindsInstance application      : CApplication
+        )                                   : IComponentApp
+    }
 }

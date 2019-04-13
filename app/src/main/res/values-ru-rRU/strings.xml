@@ -36,4 +36,5 @@
     <string name="ManualInput">Ручной ввод</string>
     <string name="Documents">Документы</string>
     <string name="Photos">Фотографии</string>
+    <string name="ErrorUnknown">Неизвестная ошибка</string>
 </resources>
