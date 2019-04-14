@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_lab_details.*
 
 import ru.psu.studyit.R
 import ru.psu.studyit.view.activities.CFragmentBase
@@ -14,7 +12,7 @@ import ru.psu.studyit.viewmodel.CViewModelActivityLab
 import javax.inject.Inject
 
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import ru.psu.studyit.databinding.FragmentLabDetailsBinding
 
 
 /********************************************************************************************************
@@ -34,7 +32,7 @@ class CFragmentLabDetails                   : CFragmentBase()
     {
         super.onCreate(savedInstanceState)
 
-        initViewModel()
+
     }
     /****************************************************************************************************
      * Создание и настройка модели представления.                                                       *
@@ -60,7 +58,8 @@ class CFragmentLabDetails                   : CFragmentBase()
     )                                       : View?
     {
         // Inflate the layout for this fragment
-        val binding                         = DataBindingUtil.inflate<ViewDataBinding>(
+        val binding                         : FragmentLabDetailsBinding
+                                            = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_lab_details,
             container,
@@ -84,11 +83,13 @@ class CFragmentLabDetails                   : CFragmentBase()
     {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter                         = ArrayAdapter(context, android.R.layout.simple_spinner_item, items)
-        // Определяем разметку для использования при выборе элемента
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Применяем адаптер к элементу spinner
-        spinnerSubject.adapter              = adapter
+        initViewModel()
+
+//        val adapter                         = ArrayAdapter(context, android.R.layout.simple_spinner_item, items)
+//        // Определяем разметку для использования при выборе элемента
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        // Применяем адаптер к элементу spinner
+//        spinnerSubject.adapter              = adapter
     }
 
 }

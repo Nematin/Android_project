@@ -27,7 +27,6 @@ class CViewModelFactory
      * Создаёт объект модели представления типа [T].                                                    *
      * @return модель представления.                                                                    *
      ***************************************************************************************************/
-    @Suppress("UNCHECKED_CAST")
     override fun <T                         : ViewModel>
         create(modelClass                   : Class<T>
     )                                       : T
@@ -44,6 +43,7 @@ class CViewModelFactory
         //Создаём новый объект модели представления.
         return try
         {
+            @Suppress("UNCHECKED_CAST")
             creator.get() as T
         }
         catch (e                            : Exception)

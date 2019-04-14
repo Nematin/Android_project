@@ -26,8 +26,7 @@ import javax.inject.Singleton
         CModuleRepositories::class,
         CModuleRoom::class,
         CModuleViewModel::class,
-        CModuleBindingActivity::class,
-        CModuleBindingFragment::class
+        CModuleBindingActivity::class
     ]
 )
 interface IComponentApp                     : AndroidInjector<CApplication>

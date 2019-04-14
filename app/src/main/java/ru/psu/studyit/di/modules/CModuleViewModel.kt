@@ -19,8 +19,7 @@ import ru.psu.studyit.viewmodel.CViewModelKey
 abstract class CModuleViewModel
 {
     @Binds
-//    internal
-    abstract fun bindViewModelFactory(
+    internal abstract fun bindViewModelFactory(
         factory                             : CViewModelFactory
     )                                       : ViewModelProvider.Factory
 
@@ -31,7 +30,7 @@ abstract class CModuleViewModel
     @Binds
     @IntoMap
     @CViewModelKey(CViewModelActivityMain::class)
-    abstract fun bindsViewModelActivityMain(
+    internal abstract fun bindsViewModelActivityMain(
         viewModelActivityMain               : CViewModelActivityMain
     )                                       : ViewModel
 
@@ -42,7 +41,7 @@ abstract class CModuleViewModel
     @Binds
     @IntoMap
     @CViewModelKey(CViewModelActivityLab::class)
-    abstract fun bindsViewModelActivityLab(
-        viewModelActivityMain               : CViewModelActivityLab
+    internal abstract fun bindsViewModelActivityLab(
+        viewModelActivityLab                : CViewModelActivityLab
     )                                       : ViewModel
 }

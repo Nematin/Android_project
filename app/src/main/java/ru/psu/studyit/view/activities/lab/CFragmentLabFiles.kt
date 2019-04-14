@@ -140,7 +140,10 @@ class CFragmentLabFiles                        :
                 .GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
             recyclerViewFiles.layoutManager = layoutManager
 
-            recyclerViewFiles.adapter       = CRecyclerViewAdapterFiles(context, filePaths)
+            context?.run {
+                recyclerViewFiles.adapter       = CRecyclerViewAdapterFiles(context!!, filePaths)
+            }
+
             recyclerViewFiles.itemAnimator  = DefaultItemAnimator()
 
         Toast.makeText(context, "Num of files selected: " + filePaths.size, Toast.LENGTH_SHORT)

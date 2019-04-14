@@ -9,9 +9,8 @@ import kotlin.reflect.KClass
  * @author Селетков И.П. 2018 0830.                                                                     *
  *******************************************************************************************************/
 @MustBeDocumented
-@Target(AnnotationTarget.FUNCTION)
-@Retention(AnnotationRetention.RUNTIME)
+@Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
+@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 @MapKey
-//internal
-annotation class CViewModelKey(
+internal annotation class CViewModelKey(
     val value                               : KClass<out ViewModel>)
