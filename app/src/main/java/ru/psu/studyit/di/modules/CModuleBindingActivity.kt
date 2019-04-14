@@ -2,7 +2,8 @@ package ru.psu.studyit.di.modules
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import ru.psu.studyit.di.CScopeActivity
+import ru.psu.studyit.di.modules.activities.CModuleActivityLab
+import ru.psu.studyit.di.scopes.CScopeActivity
 import ru.psu.studyit.di.modules.activities.CModuleActivityLogin
 import ru.psu.studyit.di.modules.activities.CModuleActivityMain
 import ru.psu.studyit.view.activities.CActivityLogin
@@ -37,7 +38,7 @@ abstract class CModuleBindingActivity
     @CScopeActivity
     @ContributesAndroidInjector(
         modules                             = [
-            CModuleActivityMain::class
+            CModuleActivityLab::class
         ]
     )
     internal abstract fun bindActivityLab(

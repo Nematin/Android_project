@@ -38,4 +38,8 @@ constructor
                 }
         )
     }
+    fun onSubjectChange()
+    {
+        return
+    }
 }

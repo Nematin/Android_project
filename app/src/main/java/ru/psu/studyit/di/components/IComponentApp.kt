@@ -1,5 +1,5 @@
 
-package ru.psu.studyit.di
+package ru.psu.studyit.di.components
 
 import dagger.BindsInstance
 import ru.psu.studyit.CApplication
@@ -25,7 +25,9 @@ import javax.inject.Singleton
         CModuleServerAPI::class,
         CModuleRepositories::class,
         CModuleRoom::class,
-        CModuleBindingActivity::class
+        CModuleViewModel::class,
+        CModuleBindingActivity::class,
+        CModuleBindingFragment::class
     ]
 )
 interface IComponentApp                     : AndroidInjector<CApplication>

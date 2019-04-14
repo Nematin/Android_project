@@ -1,4 +1,4 @@
-package ru.psu.studyit.di
+package ru.psu.studyit.di.scopes
 
 import javax.inject.Scope
 

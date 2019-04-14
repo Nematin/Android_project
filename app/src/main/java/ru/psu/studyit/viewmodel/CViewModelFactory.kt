@@ -14,7 +14,6 @@ import javax.inject.Singleton
  *  com/fernandocejas/sample/core/di/viewmodel/ViewModelFactory.kt                                      *
  *******************************************************************************************************/
 @Singleton
-@Suppress("UNCHECKED_CAST")
 class CViewModelFactory
 /********************************************************************************************************
  * Конструктор.                                                                                         *
@@ -28,6 +27,7 @@ class CViewModelFactory
      * Создаёт объект модели представления типа [T].                                                    *
      * @return модель представления.                                                                    *
      ***************************************************************************************************/
+    @Suppress("UNCHECKED_CAST")
     override fun <T                         : ViewModel>
         create(modelClass                   : Class<T>
     )                                       : T

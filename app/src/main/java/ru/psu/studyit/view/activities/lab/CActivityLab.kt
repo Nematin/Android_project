@@ -2,7 +2,6 @@ package ru.psu.studyit.view.activities.lab
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -10,15 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import ru.psu.studyit.R
 
 import ru.psu.studyit.view.activities.CActivityBase
-import kotlinx.android.synthetic.main.activity_lab.*
 import ru.psu.studyit.viewmodel.CViewModelActivityLab
-import ru.psu.studyit.viewmodel.observe
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
+import ru.psu.studyit.databinding.ActivityLabBinding
 import javax.inject.Inject
-
 
 /********************************************************************************************************
  * Активность                                                                                           *
@@ -29,7 +22,6 @@ import javax.inject.Inject
 class CActivityLab                          :
     CActivityBase()
 {
-
     @Inject
     lateinit var viewModelFactory           : ViewModelProvider.Factory
     private lateinit var viewModel          : CViewModelActivityLab
@@ -54,7 +46,7 @@ class CActivityLab                          :
         //Создание модели представления.
         viewModel                           = viewModel(viewModelFactory) {
             //При изменении состояния сервиса вызываем обработчик.
-            observe(this.serviceGeolocationActive, ::onServiceGeolocationActiveChanged)
+//            observe(this.serviceGeolocationActive, ::onServiceGeolocationActiveChanged)
         }
     }
 
@@ -71,7 +63,7 @@ class CActivityLab                          :
 
         binding.viewModel                   = viewModel
 
-        setSupportActionBar(binding.layoutToolbar.toolbar)
+//        setSupportActionBar(binding.layoutToolbar.toolbar)
     }
 
     /****************************************************************************************************

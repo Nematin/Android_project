@@ -19,7 +19,8 @@ import ru.psu.studyit.viewmodel.CViewModelKey
 abstract class CModuleViewModel
 {
     @Binds
-    internal abstract fun bindViewModelFactory(
+//    internal
+    abstract fun bindViewModelFactory(
         factory                             : CViewModelFactory
     )                                       : ViewModelProvider.Factory
 
