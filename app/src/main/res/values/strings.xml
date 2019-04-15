@@ -42,6 +42,7 @@
     <string name="Documents">Documents</string>
     <string name="Photos">Photos</string>
     <string name="ErrorUnknown">Unknown error</string>
+    <string name="SelectSubject">Select subject</string>
 
 
 </resources>

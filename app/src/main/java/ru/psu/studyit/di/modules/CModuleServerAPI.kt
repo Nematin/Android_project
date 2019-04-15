@@ -43,7 +43,7 @@ class CModuleServerAPI
 
         return Retrofit.Builder()
                     .baseUrl(url)
-                    .addConverterFactory(Java8OptionalConverterFactory.create())
+            //.addConverterFactory(Java8OptionalConverterFactory.create()) //Не поддеживается в Android 4.
                     .addConverterFactory(MoshiConverterFactory.create(moshi))
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
                     .client(okHttpClient)

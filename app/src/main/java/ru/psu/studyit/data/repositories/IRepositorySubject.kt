@@ -1,6 +1,6 @@
 package ru.psu.studyit.data.repositories
 
-import io.reactivex.Single
+import io.reactivex.Flowable
 import ru.psu.studyit.data.CResource
 import ru.psu.studyit.model.CSubject
 import java.util.*
@@ -18,5 +18,5 @@ interface IRepositorySubject                : IRepositoryBase<CSubject, UUID>
      * @return - список дисциплин и статус.                                                             *
      ***************************************************************************************************/
     fun getResource(
-    )                                       : Single<CResource<List<CSubject>>>
+    )                                       : Flowable<CResource<List<CSubject>>>
 }

@@ -1,7 +1,6 @@
 package ru.psu.studyit.di.modules.activities
 
 import dagger.Module
-import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import ru.psu.studyit.view.activities.lab.CActivityLab
 import ru.psu.studyit.view.activities.lab.CFragmentLabDetails
@@ -13,14 +12,6 @@ import ru.psu.studyit.view.activities.lab.CFragmentLabDetails
 @Module
 abstract class CModuleActivityLab
 {
-    @Provides
-    fun provideActivityLab(
-        activity                            : CActivityLab
-    )                                       : CActivityLab
-    {
-        return activity
-    }
-
     @ContributesAndroidInjector
     abstract fun contributeFragmentLabDetails(
     )                                       : CFragmentLabDetails

@@ -23,16 +23,14 @@ class CFragmentLabDetails                   : CFragmentBase()
 {
     @Inject
     lateinit var viewModelFactory           : ViewModelProvider.Factory
-    private var viewModel                   : CViewModelActivityLab?
-                                            = null
+    private lateinit var viewModel          : CViewModelActivityLab
+
     /****************************************************************************************************
      * Создание фрагмента.                                                                              *
      ***************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-
-
     }
     /****************************************************************************************************
      * Создание и настройка модели представления.                                                       *
@@ -40,12 +38,10 @@ class CFragmentLabDetails                   : CFragmentBase()
     private fun initViewModel()
     {
         //Создание модели представления.
-        activity?.run {
-            viewModel                       = viewModel(viewModelFactory) {
-                //При изменении состояния сервиса вызываем обработчик.
-                //observe(this.serviceGeolocationActive, ::onServiceGeolocationActiveChanged)
-            }
-        }
+        viewModel                       = viewModel(viewModelFactory) {
+            //При изменении состояния сервиса вызываем обработчик.
+            //observe(this.serviceGeolocationActive, ::onServiceGeolocationActiveChanged)
+        }!!
 
     }
     /****************************************************************************************************
@@ -57,21 +53,18 @@ class CFragmentLabDetails                   : CFragmentBase()
         savedInstanceState: Bundle?
     )                                       : View?
     {
+        initViewModel()
         // Inflate the layout for this fragment
-        val binding                         : FragmentLabDetailsBinding
-                                            = DataBindingUtil.inflate(
+        return  DataBindingUtil.inflate<FragmentLabDetailsBinding>(
             inflater,
             R.layout.fragment_lab_details,
             container,
             false
-        )
-        val view                            = binding.root
-        //here data must be an instance of the class MarsDataProvider
-        viewModel?.run {
-            binding.viewModel               = viewModel
-        }
-
-        return view
+        ).also {
+            it.viewModel                    = viewModel
+            it.lifecycleOwner               = this
+           // it.listeners                    = viewModel
+        }.root
     }
     /****************************************************************************************************
      * Завершение создания внешнего вида фрагмента.                                                     *

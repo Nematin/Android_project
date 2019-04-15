@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.activity_lab.*
 
 import ru.psu.studyit.R
 
@@ -72,12 +73,7 @@ class CActivityLab                          :
      ***************************************************************************************************/
     private fun initControls()
     {
-//        mTextViewServer!!.setText(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.DataExchangeServer.Address"))
-//        mTextViewPort!!.text = Integer.parseInt(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.DataExchangeServer.Port")).toString()
-//        mTextViewPassword!!.setText(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.DataExchangeServer.Password"))
-//        mTextViewLocationInterval!!.setText(String.valueOf(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.LocationInterval")))
-//        mTextViewLocationDistance!!.setText(String.valueOf(CApplication.getProperties().Get("ru.swiftgroup.MIRM.Geoagent.LocationDistance")))
-
+        viewPagerActivityLab.adapter        = CPagerAdapterFragmentActivityLab(this, supportFragmentManager)
         return
     }
 

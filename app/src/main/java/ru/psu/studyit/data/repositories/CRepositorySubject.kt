@@ -1,10 +1,8 @@
 package ru.psu.studyit.data.repositories
 
 import android.content.Context
+import android.util.Log
 import io.reactivex.Flowable
-import io.reactivex.Observable
-import io.reactivex.Single
-import ru.psu.studyit.R
 import ru.psu.studyit.data.CNetworkBoundResource
 import ru.psu.studyit.data.CResource
 import ru.psu.studyit.data.dao.IDAOSubject
@@ -13,8 +11,6 @@ import ru.psu.studyit.utils.api.IServiceServerAPI
 
 import java.util.*
 import javax.inject.Inject
-
-//import ru.psu.mobileapp.data.dao.IDAOSubject
 import javax.inject.Singleton
 
 
@@ -44,7 +40,7 @@ constructor
      * @return - список дисциплин и статус.                                                             *
      ***************************************************************************************************/
     override fun getResource(
-    )                                       : Single<CResource<List<CSubject>>>
+    )                                       : Flowable<CResource<List<CSubject>>>
     {
         return object                       : CNetworkBoundResource<List<CSubject>, List<CSubject>>() {
 
@@ -68,21 +64,20 @@ constructor
 
             override fun createCall(
 
-            )                               : Observable<CResource<List<CSubject>>>
+            )                               : Flowable<CResource<List<CSubject>>>
             {
                 return serviceServerAPI.fetchSubjects()
-                    .flatMapObservable {
+                    .flatMapPublisher {
                         list ->
-                        Observable.just(
+                        Flowable.just(
                             CResource.success(list)
                         )
                     }
-                    .onErrorReturn {
-                        CResource.error(it.message ?: context.getString(R.string.ErrorUnknown), ArrayList())
-                    }
             }
         }
-            .observable
-            .singleOrError()
+            .flowable
+            .doOnError {
+                Log.e("STUDYIT", "Error while fetching subjects from server", it)
+            }
     }
 }

@@ -3,7 +3,6 @@ package ru.psu.studyit.data
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import io.reactivex.Flowable
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -14,29 +13,34 @@ import io.reactivex.schedulers.Schedulers
  *******************************************************************************************************/
 abstract class CNetworkBoundResource<ResultType, RequestType>
 {
-    val observable                          : Observable<CResource<ResultType>>
+    val flowable                            : Flowable<CResource<ResultType>>
         @MainThread
         get()
         {
-            val source                      : Observable<CResource<ResultType>>
+            val source                      : Flowable<CResource<ResultType>>
             if (shouldFetch())
             {
 
                 source                      = createCall()
                     .subscribeOn(Schedulers.io())
                     .doOnNext {
-                        saveCallResult(processResponse(it)!!) }
+                        saveCallResult(processResponse(it)!!)
+                    }
 
                     .flatMap {
-                        loadFromDB().toObservable()
-                            .map { CResource.success(it) } }
+                        loadFromDB()
+                            .map {
+                                CResource.success(it)
+                            }
+                    }
 
-                    .doOnError { onFetchFailed() }
+                    .doOnError {
+                        onFetchFailed()
+                    }
 
                     .onErrorResumeNext { t  : Throwable
                                             ->
                         loadFromDB()
-                            .toObservable()
                             .map {
                                 CResource.error(t.message!!, it)
                             }
@@ -46,13 +50,11 @@ abstract class CNetworkBoundResource<ResultType, RequestType>
             else
             {
                 source                      = loadFromDB()
-                    .toObservable()
                     .map { CResource.success(it) }
             }
 
-            return Observable.concat(
+            return Flowable.concat(
                 loadFromDB()
-                    .toObservable()
                     .map { CResource.loading(it) }
                     .take(1),
                 source
@@ -81,5 +83,5 @@ abstract class CNetworkBoundResource<ResultType, RequestType>
     protected abstract fun loadFromDB()     : Flowable<ResultType>
 
     @MainThread
-    protected abstract fun createCall()     : Observable<CResource<RequestType>>
+    protected abstract fun createCall()     : Flowable<CResource<RequestType>>
 }
