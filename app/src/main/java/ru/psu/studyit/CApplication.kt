@@ -2,8 +2,8 @@ package ru.psu.studyit
 
 import android.content.Context
 import androidx.multidex.MultiDex
-import ru.psu.studyit.di.DaggerIComponentApp
-import ru.psu.studyit.di.IComponentApp
+import ru.psu.studyit.di.components.DaggerIComponentApp
+import ru.psu.studyit.di.components.IComponentApp
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
@@ -32,8 +32,8 @@ class CApplication                          : DaggerApplication()
     private fun initAppComponent()
     {
         componentApp                        = DaggerIComponentApp
-            .builder()
-            .create(this) as IComponentApp
+            .factory()
+            .create(this)
     }
 
     /****************************************************************************************************

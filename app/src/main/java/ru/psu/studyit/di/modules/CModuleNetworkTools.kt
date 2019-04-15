@@ -9,8 +9,12 @@ import ru.psu.studyit.utils.converters.CConverterUUID
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import ru.psu.studyit.CApplication
+import java.io.File
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 /********************************************************************************************************
@@ -47,24 +51,41 @@ class CModuleNetworkTools
             .build()
     }
     /****************************************************************************************************
+     * Возвращает объект [Cache] для кэширования сетевых запросов.                                      *
+     * @return объект [Cache].                                                                          *
+     ***************************************************************************************************/
+    @Provides
+    @Singleton
+    internal fun provideCache(
+        application                         : CApplication
+    )                                       : Cache
+    {
+        val cacheSize                       = (10 * 1024 * 1024).toLong() // 10 MB
+        val httpCacheDirectory              = File(application.cacheDir, "http-cache")
+        return Cache(httpCacheDirectory, cacheSize)
+    }
+    /****************************************************************************************************
      * Возвращает объект OkHttpClient с настройками логирования для использования в                     *
      * библиотеке Retrofit.                                                                             *
      * @return объект Retrofit.                                                                         *
      ***************************************************************************************************/
     @Provides
     @Singleton
-    internal fun provideOkHttpClient()      : OkHttpClient
+    internal fun provideOkHttpClient(
+        cache                               : Cache
+    )                                       : OkHttpClient
     {
         val logging                         = HttpLoggingInterceptor()
         // set your desired log level
         logging.level                       = HttpLoggingInterceptor.Level.BODY
 
         val builder                         = OkHttpClient.Builder()
-        // add your other interceptors …
-
-        // add logging as last interceptor
+        builder.cache(cache)
         builder.addInterceptor(logging)
-
+        //Там никакого специфичного функционала нет, зачем он нужен?
+       // builder.addNetworkInterceptor(RequestInterceptor())
+        builder.connectTimeout(30, TimeUnit.SECONDS)
+        builder.readTimeout(30, TimeUnit.SECONDS)
         return builder.build()
     }
 }
