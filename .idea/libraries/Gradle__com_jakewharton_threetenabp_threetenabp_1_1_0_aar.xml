@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.jakewharton.threetenabp:threetenabp:1.1.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c34e5bd769a1ff8b13ea7f4ff03796ce/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c34e5bd769a1ff8b13ea7f4ff03796ce/jars/classes.jar!/" />
+      <root url="file://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/ebb0271d68edee98b38005ac9d371755/res" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/ebb0271d68edee98b38005ac9d371755/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.threetenabp/threetenabp/1.1.0/308f6c56516ed30447fd548a1dd2649676b511f3/threetenabp-1.1.0-sources.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/modules-2/files-2.1/com.jakewharton.threetenabp/threetenabp/1.1.0/308f6c56516ed30447fd548a1dd2649676b511f3/threetenabp-1.1.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

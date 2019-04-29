@@ -7,12 +7,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_lab.*
 
-import ru.psu.studyit.R
-
 import ru.psu.studyit.view.activities.CActivityBase
 import ru.psu.studyit.viewmodel.CViewModelActivityLab
 import ru.psu.studyit.databinding.ActivityLabBinding
 import javax.inject.Inject
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.R
+
+
 
 /********************************************************************************************************
  * Активность                                                                                           *
@@ -58,7 +61,7 @@ class CActivityLab                          :
     {
         // Inflate view and obtain an instance of the binding class.
         val binding                         : ActivityLabBinding
-                                            = DataBindingUtil.setContentView(this, R.layout.activity_lab)
+                                            = DataBindingUtil.setContentView(this, ru.psu.studyit.R.layout.activity_lab)
         // Specify the current activity as the lifecycle owner.
         binding.lifecycleOwner              = this
 

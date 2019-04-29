@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.text.TextUtils" />
+        <variable
+            name="checkpoint"
+            type="ru.psu.studyit.model.CCheckPoint" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:padding="16dp"
+        android:text='@{TextUtils.isEmpty(checkpoint.name) ? "" : checkpoint.name}'
+        tools:text="Item 1 (Drop Down)" />
+</layout>

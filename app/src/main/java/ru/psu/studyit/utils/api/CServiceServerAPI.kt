@@ -3,6 +3,7 @@ package ru.psu.studyit.utils.api
 import ru.psu.studyit.model.CSubject
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import ru.psu.studyit.model.CCheckPoint
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -31,5 +32,16 @@ class CServiceServerAPI
             .subscribeOn(Schedulers.io())
     }
 
-
+    /****************************************************************************************************
+     * Запрос в API сервера списка кт, которые должен проходить студент с текущей учётной               *
+     * записью.                                                                                         *
+     * @return объект для отслеживания статуса запроса.                                                 *
+     ***************************************************************************************************/
+    override fun fetchCheckPoints(
+    )                                       : Single<List<CCheckPoint>>
+    {
+        return template.getCheckPoints()
+                //Выполняем операцию в фоновом потоке, чтобы не блокировать интерфейс.
+                .subscribeOn(Schedulers.io())
+    }
 }

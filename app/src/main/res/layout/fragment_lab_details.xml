@@ -64,6 +64,18 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
+        <Spinner
+            android:id="@+id/spinnerCheckPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            app:items="@{viewModel.checkpoints}"
+            app:itemIds="@{viewModel.checkpointIds}"
+            app:itemBinding="@{viewModel.singleCheckPointBinding}"
+            app:itemDropDownLayout="@{R.layout.spinner_checkpoint_dropdown}"
+            android:selectedItemPosition="@={viewModel.selectedCheckPointPosition}"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -82,10 +94,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/checkpoint_text"
+                android:id="@+id/check_point_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text='@{viewModel.selectedCheckPointPosition == null ? "" : Integer.toString(viewModel.selectedCheckPointPosition)}'
                 android:textSize="20sp" />
         </LinearLayout>
 

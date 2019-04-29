@@ -3,6 +3,7 @@ package ru.psu.studyit.utils.api
 import ru.psu.studyit.model.CSubject
 import io.reactivex.Single
 import retrofit2.http.GET
+import ru.psu.studyit.model.CCheckPoint
 
 /********************************************************************************************************
  * Интерфейс описывает запросы к API сервера.                                                           *
@@ -17,4 +18,12 @@ interface IServerAPITemplate
     @GET("subjects")
     fun getSubjects(
     )                                       : Single<List<CSubject>>
+
+    /****************************************************************************************************
+     * Запрос списка кт, которые изучает студент с текущей учётной записью.                             *
+     * @return объект с возможность отслеживания статуса запроса.                                       *
+     ***************************************************************************************************/
+    @GET("checkpoints")
+    fun getCheckPoints(
+    )                                       : Single<List<CCheckPoint>>
 }
