@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.ganfra:material-spinner:2.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b98ace788334dff6d5c9623ddc553c89/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b98ace788334dff6d5c9623ddc553c89/jars/classes.jar!/" />
+      <root url="file://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/bf7c0f978c21c5e301fd426685c1dbfd/res" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/bf7c0f978c21c5e301fd426685c1dbfd/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ganfra/material-spinner/2.0.0/7fd84a5f3f392a09154bff7ed93249e751570ffc/material-spinner-2.0.0-sources.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/modules-2/files-2.1/com.github.ganfra/material-spinner/2.0.0/7fd84a5f3f392a09154bff7ed93249e751570ffc/material-spinner-2.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

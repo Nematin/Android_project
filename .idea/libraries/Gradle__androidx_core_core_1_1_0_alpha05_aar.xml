@@ -1,15 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.core:core:1.1.0-alpha05@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/042b517087e0b700c7091e4cdeda329b/annotations.zip!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/0f4bc1b5201a0655fd4625cb34b8071b/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/042b517087e0b700c7091e4cdeda329b/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/042b517087e0b700c7091e4cdeda329b/jars/classes.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/0f4bc1b5201a0655fd4625cb34b8071b/jars/classes.jar!/" />
+      <root url="file://D:/AndroidSDK/.gradle/caches/transforms-2/files-2.1/0f4bc1b5201a0655fd4625cb34b8071b/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.core/core/1.1.0-alpha05/2233863f425b2a16655673ceaa82184ea4af841a/core-1.1.0-alpha05-sources.jar!/" />
+      <root url="jar://D:/AndroidSDK/.gradle/caches/modules-2/files-2.1/androidx.core/core/1.1.0-alpha05/2233863f425b2a16655673ceaa82184ea4af841a/core-1.1.0-alpha05-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -5,8 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import ru.psu.studyit.data.dao.IDAOCheckPoint
 import ru.psu.studyit.data.dao.IDAOLab
 import ru.psu.studyit.data.dao.IDAOSubject
+import ru.psu.studyit.model.CCheckPoint
 import ru.psu.studyit.model.CLab
 import ru.psu.studyit.model.CSubject
 import ru.psu.studyit.utils.converters.CConverterLocalDateTime
@@ -19,8 +21,9 @@ import ru.psu.studyit.utils.converters.CConverterUUID
  *******************************************************************************************************/
 @Database(
     entities                                = [
-            CSubject::class,
-        CLab::class
+        CSubject::class,
+        CLab::class,
+        CCheckPoint::class
 
     ],
     version                                 = 1,
@@ -71,4 +74,5 @@ abstract class CRoomDatabase                : RoomDatabase()
     }
     abstract fun daoSubject()               : IDAOSubject
     abstract fun daoLab()               : IDAOLab
+    abstract fun daoCheckPoint()               : IDAOCheckPoint
 }

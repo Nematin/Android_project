@@ -10,7 +10,7 @@ import android.view.View
 import java.util.ArrayList
 
 import ru.psu.studyit.R
-import ru.psu.studyit.data.services.IServiceLab
+import ru.psu.studyit.data.repositories.IRepositoryLab
 import ru.psu.studyit.model.CLab
 
 import javax.inject.Inject
@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class CActivityMain                         : CActivityBase() {
 
     @Inject
-    lateinit var serviceLab                 : IServiceLab
+    lateinit var serviceLab                 : IRepositoryLab
 
     internal var tasks                      : ArrayList<CLab>
                                             = ArrayList()

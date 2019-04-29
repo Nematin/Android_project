@@ -6,9 +6,11 @@ import ru.psu.studyit.data.dao.IDAOSubject
 import ru.psu.studyit.utils.database.CRoomDatabase
 import dagger.Module
 import dagger.Provides
+import ru.psu.studyit.data.dao.IDAOCheckPoint
 import ru.psu.studyit.data.dao.IDAOLab
 import ru.psu.studyit.model.CLab
 import ru.psu.studyit.model.CSubject
+import ru.psu.studyit.model.CCheckPoint
 import javax.inject.Singleton
 
 /********************************************************************************************************
@@ -58,5 +60,18 @@ class CModuleRoom
     )                                       : IDAOLab
     {
         return database.daoLab()
+    }
+
+    /****************************************************************************************************
+     * Возвращает ссылку на объект доступа к данным типа [CCheckPoint].                                        *
+     * @param database - база данных, открытая с помощью room.                                          *
+     ***************************************************************************************************/
+    @Singleton
+    @Provides
+    fun providesCheckPointDAO(
+            database                        : CRoomDatabase
+    )                                       : IDAOCheckPoint
+    {
+        return database.daoCheckPoint()
     }
 }
